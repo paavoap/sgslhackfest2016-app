@@ -2,13 +2,14 @@
  * This file provides css styles.
  */
 
-body,html {
+body {
 	background-color: #3B4547;
 	margin: 0 auto;
+  max-width: 50em;
+
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	color: #131617;
-  margin: 0 auto;
-  max-width: 50em;
+
 	line-height: 1.5;
 	padding: 4em 1em;
 }
@@ -25,7 +26,11 @@ a:hover {
 .map-container {
 	margin-top: 37px;
 	margin-bottom: 25px;
-	width: 600px;
+	height: 500px;
+}
+
+#map {
+	height: 100%;
 }
 
 .centered {

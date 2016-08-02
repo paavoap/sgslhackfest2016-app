@@ -2,24 +2,21 @@
 <html>
 
   <head>
-    <title>NodeJS Starter Application</title>
+    <title>SGSL Hackfest 2016</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="stylesheets/style.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="javascript/script.js"></script>
   </head>
 
   <body>
     <div class="map-container centered">
-      <iframe
-        width="600"
-        height="450"
-        frameborder="0" style="border: solid grey thin"
-        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDkTOWgcylapDsNK6uuizxXQS1lksfUdbQ&q=Changi+Business+Park,Singapore" allowfullscreen>
-      </iframe>
+      <div id="map" class="centered"></div>
     </div>
-    <div class="text-container centered">
-      <p>At length I pass to the remaining portion of my Ethics, which is concerned with the way leading to <a href="#">freedom</a>. I shall therefore treat therein of the <a href="#">power</a> of the reason, showing how far the reason can control the emotions, and what is the nature of Mental Freedom or Blessedness; we shall then be able to see, how much more powerful the <a href="#">wise</a> man is than the ignorant.</p>
+    <div id="output" class="text-container centered">
+      <p>Click the map.</p>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkTOWgcylapDsNK6uuizxXQS1lksfUdbQ&callback=initMap" async defer></script>
   </body>
 
 </html>
