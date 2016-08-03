@@ -10,8 +10,30 @@ function createChart(ctx, data) {
         labels: ["Now", "15 min", "30 min", "45 min", "60 min"],
         datasets: [{
             label: 'Taxi count',
-            data: data
+            data: data,
+            borderColor: "#394345",
+            backgroundColor: "#798D92"
         }]
+    },
+    options: {
+      legend: {
+              display: true,
+              labels: {
+                  fontColor: "#131617"
+              }
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            fontColor: "#131617"
+          }
+        }],
+        xAxes: [{
+          ticks: {
+            fontColor: "#131617"
+          }
+        }]
+      }
     }
   });
 }
