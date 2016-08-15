@@ -4,14 +4,27 @@
 
 body {
 	background-color: #3B4547;
-	margin: 0 auto;
-  max-width: 50em;
 
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	color: #131617;
 
 	line-height: 1.5;
-	padding: 4em 1em;
+}
+
+/* Desktop only */
+@media (min-width: 900px) {
+	body {
+    margin: 0 auto;
+    max-width: 50em;
+
+    padding: 4em 1em;
+	}
+
+	.map-container {
+		margin-top: 37px;
+		margin-bottom: 25px;
+	}
+
 }
 
 a {
@@ -24,8 +37,10 @@ a:hover {
 }
 
 .map-container {
+	/*
 	margin-top: 37px;
 	margin-bottom: 25px;
+	*/
 	height: 500px;
 }
 
@@ -39,10 +54,6 @@ a:hover {
 }
 
 .text-container {
-	margin-top: 37px;
-	margin-bottom: 25px;
-	padding: 1em;
-
 	border: solid grey thin;
 	background-color: #6E8185;
 }
