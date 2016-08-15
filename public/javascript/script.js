@@ -38,41 +38,56 @@ function createChart(ctx, data) {
   });
 }
 
+function updateLocation(lat, lng) {
+  $("#output").html("<canvas id=\"t-chart\" width=\"400\" height=\"100\"></canvas>");
+  var date = new Date();
+  var req = {
+    lat: lat,
+    lng: lng,
+    timestamps: [
+      date,
+      addMinutes(date, 15),
+      addMinutes(date, 30),
+      addMinutes(date, 45),
+      addMinutes(date, 60)
+    ]
+  };
+  $.ajax({
+    type: "POST",
+    url: "/api/predict",
+    contentType: "application/json; charset=utf-8",
+    data: JSON.stringify(req),
+  }).fail(function () {
+    console.log("Request to /api/predict failed.");
+  }).done(function (data) {
+    console.log(data);
+    console.log(typeof data);
+    data.forEach(function (e) { console.log(e); });
+    createChart($("#t-chart"), data);
+  });
+}
+
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 1.3358394, lng: 103.962116},
     zoom: 13
   });
 
+  if ("geolocation" in navigator) {
+    /* geolocation is available */
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var lat = position.coords.latitude;
+      var lng = position.coords.longitude;
+      var center = new google.maps.LatLng(lat, lng);
+      map.panTo(center);
+      updateLocation(lat, lng);
+    });
+  }
+
   map.addListener('click', function(e) {
-    $("#output").html("<canvas id=\"t-chart\" width=\"400\" height=\"100\"></canvas>");
     var lat = e.latLng.lat();
     var lng = e.latLng.lng();
-    var date = new Date();
-    var req = {
-      lat: lat,
-      lng: lng,
-      timestamps: [
-        date,
-        addMinutes(date, 15),
-        addMinutes(date, 30),
-        addMinutes(date, 45),
-        addMinutes(date, 60)
-      ]
-    };
-    $.ajax({
-      type: "POST",
-      url: "/api/predict",
-      contentType: "application/json; charset=utf-8",
-      data: JSON.stringify(req),
-    }).fail(function () {
-      console.log("Request to /api/predict failed.");
-    }).done(function (data) {
-      console.log(data);
-      console.log(typeof data);
-      data.forEach(function (e) { console.log(e); });
-      createChart($("#t-chart"), data);
-    });
+    updateLocation(lat, lng);
   });
 }
 
