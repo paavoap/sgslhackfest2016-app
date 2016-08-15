@@ -39,7 +39,7 @@ function createChart(ctx, data) {
 }
 
 function updateLocation(lat, lng) {
-  $("#output").html("<canvas id=\"t-chart\" width=\"400\" height=\"100\"></canvas>");
+  $("#output").html("<canvas id=\"t-chart\" width=\"400\" height=\"200\"></canvas>");
   var date = new Date();
   var req = {
     lat: lat,
