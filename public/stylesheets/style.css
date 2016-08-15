@@ -1,7 +1,3 @@
-/* style.css
- * This file provides css styles.
- */
-
 body {
 	background-color: #3B4547;
 
@@ -36,14 +32,6 @@ a:hover {
 	text-decoration: underline;
 }
 
-.map-container {
-	/*
-	margin-top: 37px;
-	margin-bottom: 25px;
-	*/
-	height: 500px;
-}
-
 #map {
 	height: 100%;
 }
@@ -51,6 +39,10 @@ a:hover {
 .centered {
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.map-container {
+  height: 400px;
 }
 
 .text-container {
