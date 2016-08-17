@@ -61,8 +61,6 @@ function updateLocation(lat, lng) {
     console.log("Request to /api/predict failed.");
   }).done(function (data) {
     console.log(data);
-    console.log(typeof data);
-    data.forEach(function (e) { console.log(e); });
     createChart($("#t-chart"), data);
   });
 }
