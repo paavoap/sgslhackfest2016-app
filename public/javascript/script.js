@@ -7,9 +7,9 @@ function createChart(ctx, data) {
   var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ["Now", "15 min", "30 min", "45 min", "60 min"],
+        labels: ["Now", "1 hour", "2 hours", "3 hours", "4 hours", "5 hours"],
         datasets: [{
-            label: 'Taxi count',
+            label: 'Taxi availability',
             data: data,
             borderColor: "#394345",
             backgroundColor: "#798D92"
@@ -25,7 +25,9 @@ function createChart(ctx, data) {
       scales: {
         yAxes: [{
           ticks: {
-            fontColor: "#131617"
+            display: false,
+            suggestedMin: 0.25,
+            suggestedMax: 0.75
           }
         }],
         xAxes: [{
@@ -46,10 +48,11 @@ function updateLocation(lat, lng) {
     lng: lng,
     timestamps: [
       date,
-      addMinutes(date, 15),
-      addMinutes(date, 30),
-      addMinutes(date, 45),
-      addMinutes(date, 60)
+      addMinutes(date, 1 * 60),
+      addMinutes(date, 2 * 60),
+      addMinutes(date, 3 * 60),
+      addMinutes(date, 4 * 60),
+      addMinutes(date, 5 * 60)
     ]
   };
   $.ajax({
