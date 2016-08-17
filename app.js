@@ -39,6 +39,7 @@ function getPrediction(ts, lat, lng) {
   var body = {
       "arguments": [ ['"'+tss+'"', lng, lat].join(',') ]
   };
+  console.log(body);
   var options = {
     method: 'POST',
     uri: 'https://dashdb-entry-yp-dal09-07.services.dal.bluemix.net:8443/dashdb-api/rscript/getPrediction.r',
