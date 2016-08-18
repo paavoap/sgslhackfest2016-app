@@ -10,7 +10,8 @@
 		"body-parser": "1.15.x",
 		"cfenv": "1.0.x",
     "request": "2.34.x",
-    "request-promise": "4.1.x"
+    "request-promise": "4.1.x",
+    "moment-timezone": "0.5.x"
 	},
 	"repository": {},
 	"engines": {

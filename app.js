@@ -14,6 +14,7 @@ var bodyParser = require('body-parser');
 var cfenv = require('cfenv');
 
 var rp = require('request-promise');
+var moment = require('moment-timezone');
 
 // create a new express server
 var app = express();
@@ -35,7 +36,10 @@ function parseResponse(res) {
 }
 
 function getPrediction(ts, lat, lng) {
-  var tss = ts.toString();
+  var m = moment(ts);
+  var sg = m.clone().tz("Asia/Singapore")
+  // Wed Aug 17 2016 16:37:18 GMT+0800 (SGT)
+  var tss = sg.format("ddd MMM D YYYY HH:mm:ss [GMT]ZZ [(SGT)]")
   var body = {
       "arguments": [ ['"'+tss+'"', lng, lat].join(',') ]
   };
