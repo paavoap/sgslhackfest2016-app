@@ -11,7 +11,8 @@
 		"cfenv": "1.0.x",
     "request": "2.34.x",
     "request-promise": "4.1.x",
-    "moment-timezone": "0.5.x"
+    "moment-timezone": "0.5.x",
+    "ibm_db": "0.0.19"
 	},
 	"repository": {},
 	"engines": {
